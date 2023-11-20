@@ -1,3 +1,37 @@
+# Steps that I take to create this application
+
+-run this command npx create-react-app netflix-gpt
+-configured Tailwindcss
+-Header
+-Setting up routing
+-Sign In form
+-Sign Up form
+-Form Validation
+-useRef Hook
+-Firebase setup
+-deploying our app to production
+-Create Sign Up User Account in firebase
+-Implement Sign In user API of firebase Authentication
+-Created redux store with userSlice
+-Implemented sign out
+-Update Profile
+
+# Features That I have built
+
+-Sign In/Sign Up form
+
+It will open if the user is authenticated
+-Browse Page
+-Header
+-Main Movie
+-Movie in background
+-Title and description
+-Movie Suggestions
+-MovieLists \* N
+-NetflixGPT
+-Search Bar
+-Movie Suggestions
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
