@@ -11,6 +11,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Logo, Profile_Logo } from "../utils/constant";
 
 const Header = (props) => {
   const { browse } = props;
@@ -19,7 +20,7 @@ const Header = (props) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in/signed up
         const { uid, email, displayName } = user;
@@ -31,6 +32,11 @@ const Header = (props) => {
         navigate("/");
       }
     });
+
+    // unSubscribe to onAuthStateChanged when component unmounts
+    return () => {
+      unSubscribe();
+    };
   }, []);
 
   const handleSignOut = () => {
@@ -47,14 +53,14 @@ const Header = (props) => {
 
   return (
     <header
-      className={`top-0 left-0 w-full items-center absolute flex bg-gradient-to-b ${
+      className={`top-0 left-0 w-full items-center absolute z-30 flex bg-gradient-to-b ${
         browse
           ? "py-2.5 px-12 from-black to-transparent"
           : "py-3  px-6 from-black"
       }`}
     >
       <img
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+        src={Logo}
         alt="Logo"
         className={`${browse ? "w-[120px]" : "w-56"} `}
       />
@@ -109,7 +115,7 @@ const Header = (props) => {
                 }}
               >
                 <img
-                  src="https://occ-0-6246-2186.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdYJV5wt63AcxNaDoqDXUhqZb55oN5Dxt1m-Zdn_z5rn_hIq9m8dA8JB2xdcPmrY3yXnlVWYKPXnOrbv2QN4aEVU28dESJg.png?r=1d4"
+                  src={Profile_Logo}
                   alt="Profile Logo"
                   className="rounded-md"
                 />
