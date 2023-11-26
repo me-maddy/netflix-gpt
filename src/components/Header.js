@@ -10,12 +10,17 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Logo, Profile_Logo } from "../utils/constant";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { toggleLanguage } from "../utils/languageSlice";
+import { Supported_Lng } from "../utils/constant";
 
 const Header = (props) => {
   const { browse } = props;
   const dispatch = useDispatch();
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -38,6 +43,14 @@ const Header = (props) => {
       unSubscribe();
     };
   }, []);
+
+  const handleGptSearchClick = () => {
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageClick = (e) => {
+    dispatch(toggleLanguage(e.target.value));
+  };
 
   const handleSignOut = () => {
     signOut(auth)
@@ -62,7 +75,7 @@ const Header = (props) => {
       <img
         src={Logo}
         alt="Logo"
-        className={`${browse ? "w-[120px]" : "w-56"} `}
+        className={`${browse ? "w-[120px] cursor-pointer" : "w-56"} `}
       />
       {browse && (
         <div className="flex w-full justify-between items-center pr-3">
@@ -101,12 +114,25 @@ const Header = (props) => {
             </ul>
           </nav>
           <div className="flex gap-x-5 items-center">
+            <button
+              className="px-3 py-1.5 hover:opacity-70 transition-opacity duration-200 ease-in text-white bg-violet-800 rounded"
+              onClick={handleGptSearchClick}
+            >
+              {showGptSearch ? "Homepage" : "GPT Search"}
+            </button>
             <div>
-              <SearchIcon sx={{ fontSize: 30, color: "#fafafa" }} />
+              <SearchIcon
+                sx={{ fontSize: 30, color: "#fafafa" }}
+                className="cursor-pointer"
+              />
             </div>
             <div>
-              <NotificationsNoneIcon sx={{ fontSize: 30, color: "#fafafa" }} />
+              <NotificationsNoneIcon
+                sx={{ fontSize: 30, color: "#fafafa" }}
+                className="cursor-pointer"
+              />
             </div>
+
             <div className="relative ">
               <div
                 className="group peer flex gap-x-2 cursor-pointer"
@@ -163,6 +189,27 @@ const Header = (props) => {
                 </p>
               </div>
             </div>
+            {showGptSearch && (
+              <div className="relative ml-2">
+                <select
+                  className="bg-transparent text-white text-lg px-2 py-1 outline-none [-webkit-appearance]:none appearance-none peer cursor-pointer"
+                  onChange={handleLanguageClick}
+                >
+                  {Supported_Lng.map((language) => (
+                    <option
+                      value={language.identifier}
+                      key={language.identifier}
+                      className="bg-black px-2"
+                    >
+                      {language.name}
+                    </option>
+                  ))}
+                </select>
+                <span className="absolute peer-hover:opacity-100 opacity-0 transition-opacity duration-200 ease-in text-gray-400 text-xs -right-4 -top-2 ">
+                  Language
+                </span>
+              </div>
+            )}
           </div>
         </div>
       )}

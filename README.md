@@ -30,6 +30,8 @@
 -Build MovieList and MovieCard
 -Added TMDB image CDN and make the browse page cool with tailwind css
 -Add Movie list with different title
+-GPT search feature
+-Multi Language feature in our APP
 
 # Features That I have built
 
