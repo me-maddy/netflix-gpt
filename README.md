@@ -1,37 +1,37 @@
 # Steps that I take to create this application
 
--run this command npx create-react-app netflix-gpt
--configured Tailwindcss
--Header
--Setting up routing
--Sign In form
--Sign Up form
--Form Validation
--useRef Hook
--Firebase setup
--deploying our app to production
--Create Sign Up User Account in firebase
--Implement Sign In user API of firebase Authentication
--Created redux store with userSlice
--Implemented sign out
--Update Profile
--BugFix : redirect user to browse page without authentication
--Unsubscribe to onAuthStateChanged firebase API
--Add hardcoded values to constant
--Register on TMDB App and get access to API Token
--Go to documentation and get data from Now Playing movies
--Custom Hooks for now playing video
--create movieSlice and update store with movie data
--Planning for maincontainer and secondarycontainer
--Fetch data for trailer video
--Update store with trailer video data
--embedded the youtube video and make it autoplay and mute
--Build secondary component
--Build MovieList and MovieCard
--Added TMDB image CDN and make the browse page cool with tailwind css
--Add Movie list with different title
--GPT search feature
--Multi Language feature in our APP
+- run this command npx create-react-app netflix-gpt
+- configured Tailwindcss
+- Header
+- Setting up routing
+- Sign In form
+- Sign Up form
+- Form Validation
+- useRef Hook
+- Firebase setup
+- deploying our app to production
+- Create Sign Up User Account in firebase
+- Implement Sign In user API of firebase Authentication
+- Created redux store with userSlice
+- Implemented sign out
+- Update Profile
+- BugFix : redirect user to browse page without authentication
+- Unsubscribe to onAuthStateChanged firebase API
+- Add hardcoded values to constant
+- Register on TMDB App and get access to API Token
+- Go to documentation and get data from Now Playing movies
+- Custom Hooks for now playing video
+- create movieSlice and update store with movie data
+- Planning for maincontainer and secondarycontainer
+- Fetch data for trailer video
+- Update store with trailer video data
+- embedded the youtube video and make it autoplay and mute
+- Build secondary component
+- Build MovieList and MovieCard
+- Added TMDB image CDN and make the browse page cool with tailwind css
+- Add Movie list with different title
+- GPT search feature
+- Multi Language feature in our APP
 
 # Features That I have built
 
