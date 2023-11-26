@@ -38,16 +38,17 @@
 -Sign In/Sign Up form
 
 It will open if the user is authenticated
--Browse Page
--Header
--Main Movie
--Movie in background
--Title and description
--Movie Suggestions
--MovieLists \* N
--NetflixGPT
--Search Bar
--Movie Suggestions
+
+- Browse Page
+- Header
+- Main Movie
+- Movie in background
+- Title and description
+- Movie Suggestions
+- MovieLists \* N
+- NetflixGPT
+- Search Bar
+- Movie Suggestions
 
 # Getting Started with Create React App
 
