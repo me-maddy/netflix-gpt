@@ -8,9 +8,11 @@ const MovieList = ({ title, movies }) => {
       <h1 className="font-bold text-lg mb-2 text-white">{title}</h1>
       <div className="flex overflow-x-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
         <div className="flex">
-          {movies.map((movie) => (
-            <MovieCard key={movie?.id} img_id={movie?.poster_path} />
-          ))}
+          {movies.map((movie) => {
+            return movie?.poster_path ? (
+              <MovieCard key={movie?.id} img_id={movie?.poster_path} />
+            ) : null;
+          })}
         </div>
       </div>
     </div>

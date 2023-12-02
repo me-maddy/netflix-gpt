@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Logo, Profile_Logo } from "../utils/constant";
-import { toggleGptSearchView } from "../utils/gptSlice";
+import { removeGptMovieResult, toggleGptSearchView } from "../utils/gptSlice";
 import { toggleLanguage } from "../utils/languageSlice";
 import { Supported_Lng } from "../utils/constant";
 
@@ -45,6 +45,7 @@ const Header = (props) => {
   }, []);
 
   const handleGptSearchClick = () => {
+    if (showGptSearch) dispatch(removeGptMovieResult());
     dispatch(toggleGptSearchView());
   };
 
