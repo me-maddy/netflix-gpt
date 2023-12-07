@@ -23,4 +23,4 @@ export const Supported_Lng = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OpenAI_Key = process.env.REACT_APP_OPENAI_KEY;
+// export const OpenAI_Key = process.env.REACT_APP_OPENAI_KEY;

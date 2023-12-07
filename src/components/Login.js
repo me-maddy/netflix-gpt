@@ -28,6 +28,11 @@ const Login = () => {
   const handleButtonClick = (e) => {
     e.preventDefault();
 
+    if (email.current.value === "" || password.current.value === "") {
+      setIsErrorMsg("Input fields should not be empty.");
+      return;
+    }
+
     if (isSignIn) {
       const result = checkValidation(
         email.current.value,
@@ -35,6 +40,7 @@ const Login = () => {
       );
 
       setIsErrorMsg(result);
+      if (result) return;
     } else {
       const result = checkValidation(
         email.current.value,
@@ -43,9 +49,8 @@ const Login = () => {
       );
 
       setIsErrorMsg(result);
+      if (result) return;
     }
-
-    if (isErrorMsg) return;
 
     if (!isSignIn) {
       // If Sign Up form is there
