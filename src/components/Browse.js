@@ -8,6 +8,7 @@ import GptSearch from "./GptSearch";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryComponent from "./SecondaryComponent";
+import Footer from "./Footer";
 
 const Browse = () => {
   useNowPlayingMovies();
@@ -18,7 +19,7 @@ const Browse = () => {
   // console.log(toggleGpt);
 
   return (
-    <div className="w-full relative">
+    <div className="w-full min-h-screen relative">
       <Header browse={true} />
       {toggleGpt ? (
         <GptSearch />
@@ -28,6 +29,7 @@ const Browse = () => {
           <SecondaryComponent />
         </>
       )}
+      <Footer />
     </div>
   );
 };

@@ -32,6 +32,16 @@
 - Add Movie list with different title
 - GPT search feature
 - Multi Language feature in our APP
+- Ask user for their Openai key
+- Leverage the power of gpt through openai key
+- Gpt Search to get suggested movie name using query
+- Fetched movies that suggested by Gpt API call from TMDB API
+- Created gpt slice to save movies data
+- reuse Movielist component to show movie list
+- Memoization
+- Add .env file to hide API keys
+- Adding .env file to gitignore
+- Make our application responsive
 
 # Features That I have built
 

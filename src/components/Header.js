@@ -66,10 +66,10 @@ const Header = (props) => {
 
   return (
     <header
-      className={` top-0 left-0 w-full items-center absolute z-30 flex sm:flex-row flex-col bg-gradient-to-b ${
+      className={` top-0 left-0 w-full items-center absolute z-30 flex bg-gradient-to-b ${
         browse
-          ? "min-[330px]:py-2 py-1 lg:py-2.5 lg:px-8 xl:px-12 md:px-4 min-[330px]:px-3 px-1.5  from-black to-transparent"
-          : "py-3  px-6 from-black"
+          ? "min-[330px]:py-2 py-1 lg:py-2.5 lg:px-8 xl:px-12 md:px-4 min-[330px]:px-3 px-1.5 sm:flex-row flex-col   from-black to-transparent"
+          : "sm:py-3 py-1.5 px-2 sm:px-6 from-black flex-none items-start"
       }`}
     >
       <img
@@ -78,7 +78,7 @@ const Header = (props) => {
         className={`${
           browse
             ? "lg:w-[120px] w-20 min-[330px]:w-24 sm:w-[88px] md:w-[104px] cursor-pointer"
-            : "w-56"
+            : "sm:w-40 w-32 lg:w-56"
         } `}
       />
       {browse && (

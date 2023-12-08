@@ -48,24 +48,28 @@ const GptSearchBar = () => {
 
     // Search movie using movie name without gpt api
     if (searchWithMovieName) {
-      setLoading(true);
-      const movieResponse = searchMovieTMDB(searchText.current.value);
-      const resolveResponse = await Promise.resolve(movieResponse);
-      if (!resolveResponse.results || resolveResponse.results.length === 0) {
-        setMessage("I think there is no movie available with this name.");
+      try {
+        setLoading(true);
+        const movieResponse = searchMovieTMDB(searchText.current.value);
+        const resolveResponse = await Promise.resolve(movieResponse);
+        if (!resolveResponse.results || resolveResponse.results.length === 0) {
+          setMessage("I think there is no movie available with this name.");
+          setLoading(false);
+          return;
+        }
         setLoading(false);
+        setMessage(null);
+        dispatch(
+          addGptMovieResult({
+            movieNames: searchText.current.value,
+            movieResults: resolveResponse,
+          })
+        );
+        searchText.current.value = "";
         return;
+      } catch (error) {
+        setMessage(error.message);
       }
-      setLoading(false);
-      setMessage(null);
-      dispatch(
-        addGptMovieResult({
-          movieNames: searchText.current.value,
-          movieResults: resolveResponse,
-        })
-      );
-      searchText.current.value = "";
-      return;
     }
 
     // Make an Api call to GPT API and get movie results
